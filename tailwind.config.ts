@@ -14,6 +14,7 @@ const config: Config = {
         code: "var(--code-color)",
         normal: "var(--font-normal)",
         inner: "var(--inner-color)",
+        comment: "var(--comment-color)",
       },
     },
   },

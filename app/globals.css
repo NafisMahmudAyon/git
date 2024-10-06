@@ -8,6 +8,7 @@
   --font-normal: #c8d1df;
   --code-color: #e6ac6f;
   --inner-color: #ba7bcc;
+  --comment-color: #b38098;
 }
 
 @media (prefers-color-scheme: dark) {
