@@ -11,6 +11,9 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        code: "var(--code-color)",
+        normal: "var(--font-normal)",
+        inner: "var(--inner-color)",
       },
     },
   },
