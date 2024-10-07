@@ -3,6 +3,7 @@ import InnerSection from './InnerSection';
 
 interface SectionProps {
   command: {
+    id: string;
     title: string;
     description: string;
     command: string;
@@ -17,7 +18,7 @@ interface SectionProps {
 
 const Section = ({ command }: SectionProps) => {
   return (
-    <div>
+    <div id={command.id} className='mt-3'>
       <h3 className="text-xl font-medium mb-2">{command.title}</h3>
       {command.description && (
         <p className="text-sm text-normal mb-2">{command.description}</p>

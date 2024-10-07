@@ -7,11 +7,12 @@ interface InnerSectionProps {
     command: string;
     note?: React.ReactNode;
   };
+  className?: string;
 }
 
-const InnerSection = ({ command  }: InnerSectionProps) => {
+const InnerSection = ({ command, className }: InnerSectionProps) => {
   return (
-    <div className="flex flex-col gap-1">
+    <div className={`flex flex-col gap-1 ${className}`}>
       {command.title && (
         <h4 className="text-base font-medium mb-2 text-inner">{command.title}</h4>
       )}
