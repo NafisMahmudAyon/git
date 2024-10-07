@@ -20,7 +20,7 @@ const InnerSection = ({ command, className }: InnerSectionProps) => {
         <p className="text-sm text-normal mb-2">{command.description}</p>
       )}
       {command.command && (
-        <div className="text-sm text-normal flex flex-col gap-1">
+        <div className="text-sm text-normal flex flex-col gap-1 ">
           <span className="text-code px-4 py-2 bg-gray-500/20 backdrop-blur-sm shadow-sm rounded-md">{command.command}</span>
         </div>
       )}

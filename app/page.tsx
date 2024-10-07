@@ -745,23 +745,26 @@ export default function Home() {
       description: "Forces the push even if it results in a non-fast-forward merge.",
       command: 'git push --force',
     },
-    {
-      title: "-m",
-      description: "Allows you to provide a commit message directly in the command line.",
-      command: 'git commit -m "Commit message"',
-    },
+    // {
+    //   title: "-m",
+    //   description: "Allows you to provide a commit message directly in the command line.",
+    //   command: 'git commit -m "Commit message"',
+    // },
 
   ]
 
   const [showSidebar, setShowSidebar] = useState(false);
-  
+
   return (
     <div className="grid min-h-screen pt-8 px-4 lg:px-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-fira)]">
 
       <main className="w-full lg:w-3/4">
         <div className="flex flex-col gap-8 row-start-2  sm:items-start">
           <h1 className="text-4xl font-medium">Git Helper Command</h1>
-          <button className={`fixed top-4 right-4 z-50 backdrop-blur-sm rounded-md p-2 fill-white ${showSidebar ? 'hidden' : ''} lg:hidden`} onClick={() => setShowSidebar(!showSidebar)}><svg viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" /></svg></button>
+          <button className={`fixed top-4 right-4 z-50 backdrop-blur-sm rounded-md p-2 border-foreground border ${showSidebar ? 'hidden' : ''} lg:hidden`} onClick={() => setShowSidebar(!showSidebar)}><svg width="21" height="24" viewBox="0 0 21 24" fill="none">
+            <path d="M0 4.5C0 3.67031 0.670312 3 1.5 3H19.5C20.3297 3 21 3.67031 21 4.5C21 5.32969 20.3297 6 19.5 6H1.5C0.670312 6 0 5.32969 0 4.5ZM0 12C0 11.1703 0.670312 10.5 1.5 10.5H19.5C20.3297 10.5 21 11.1703 21 12C21 12.8297 20.3297 13.5 19.5 13.5H1.5C0.670312 13.5 0 12.8297 0 12ZM21 19.5C21 20.3297 20.3297 21 19.5 21H1.5C0.670312 21 0 20.3297 0 19.5C0 18.6703 0.670312 18 1.5 18H19.5C20.3297 18 21 18.6703 21 19.5Z" fill="currentColor" />
+          </svg>
+</button>
 
           <div className="flex flex-col gap-6">
             {/* what is git and used for */}
@@ -783,7 +786,7 @@ export default function Home() {
             </div>
 
             {/* Git Useful Flags */}
-            <div className="flex flex-col gap-12 mb-20">
+            <div className="flex flex-col gap-12 mb-20" id="useful-flags">
               <h2 className="text-2xl font-medium mb-2">Git Useful Flags</h2>
               {GitUsefulFlags.map((command, index) => (
                 <InnerSection key={index} command={command} className="border-l-2 border-inner pl-4" />
@@ -794,61 +797,32 @@ export default function Home() {
         </div>
         <aside className={`w-full lg:w-1/4 fixed lg:right-0 top-0 h-screen overflow-y-auto bg-background pt-10 px-4 ${showSidebar ? 'right-0' : '-right-full'}`}>
 
-          <button className="absolute top-4 right-4 lg:hidden" onClick={() => setShowSidebar(!showSidebar)}>Close Sidebar</button>
+          <button className="absolute top-4 right-4 backdrop-blur-sm rounded-md p-2 border-foreground border lg:hidden" onClick={() => setShowSidebar(!showSidebar)}>
+            <svg width="18" height="24" viewBox="0 0 18 24" fill="none">
+              <path d="M16.0594 7.05935C16.6453 6.47341 16.6453 5.52185 16.0594 4.93591C15.4734 4.34998 14.5219 4.34998 13.9359 4.93591L9.00001 9.87654L4.05938 4.9406C3.47344 4.35466 2.52188 4.35466 1.93594 4.9406C1.35001 5.52654 1.35001 6.4781 1.93594 7.06404L6.87657 12L1.94063 16.9406C1.35469 17.5265 1.35469 18.4781 1.94063 19.064C2.52657 19.65 3.47813 19.65 4.06407 19.064L9.00001 14.1234L13.9406 19.0594C14.5266 19.6453 15.4781 19.6453 16.0641 19.0594C16.65 18.4734 16.65 17.5219 16.0641 16.9359L11.1234 12L16.0594 7.05935Z" fill="currentColor" />
+            </svg>
+
+          </button>
           <h2 className="text-2xl font-medium mb-2">Commands</h2>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 mb-10">
             {GitCommands.map((command) => (
-              <a href={`#${command.id}`} key={command.id} onClick={() => setShowSidebar(false)}>{command.title}</a>
+              <a href={`#${command.id}`} className="text-inner border-b border-inner border-dashed w-max hover:border-foreground transition-all duration-200 ease-in-out " key={command.id} onClick={() => setShowSidebar(false)}>{command.title}</a>
+            ))}
+          </div>
+          <h2 className="text-2xl font-medium mb-2">Useful Flags</h2>
+          <div className="flex flex-col gap-2 mb-10">
+            {GitUsefulFlags.map((command, index) => (
+              <a href={`#useful-flags`} className="text-inner border-b border-inner border-dashed w-max hover:border-foreground transition-all duration-200 ease-in-out " key={index} onClick={() => setShowSidebar(false)}>{command.title}</a>
             ))}
           </div>
         </aside>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          className=""
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          Made by <a href="https://nafisbd.com" target="_blank">Nafis Mahmud Ayon</a>
+        </div>
       </footer>
     </div>
   );
