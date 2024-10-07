@@ -455,6 +455,12 @@ export default function Home() {
           command: 'git reset <commit-hash> -- <file-path>',
           note: 'Replace <commit-hash> with the hash of the commit you want to reset to and <file-path> with the path to the file you want to reset.',
         },
+        {
+          title: "Reset to HEAD",
+          description: "To reset the current branch to the latest commit, you can use the following command:",
+          command: 'git reset --hard HEAD',
+          note: 'This will reset the current branch to the latest commit and delete any changes made after the latest commit.',
+        },
       ]
     }
   ]
