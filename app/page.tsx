@@ -1,7 +1,6 @@
 'use client'
 import InnerSection from "@/components/InnerSection";
 import Section from "@/components/Section";
-import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {
@@ -778,7 +777,7 @@ export default function Home() {
             </div>
 
             {/* Git Commands */}
-            <div className="flex flex-col gap-20 mb-20">
+            <div className="flex flex-col gap-10 lg:gap-20 mb-20">
               <h2 className="text-2xl font-medium mb-2">Git Commands</h2>
               {GitCommands.map((command) => (
                 <Section key={command.id} command={command} />
