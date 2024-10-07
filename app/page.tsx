@@ -331,7 +331,131 @@ export default function Home() {
           command: 'git merge <branch-name>',
           note: 'Replace <branch-name> with the name of the branch you want to merge.',
         },
+        {
+          title: "No Fast-Forward Merge",
+          description: "To merge a branch into the current branch without a fast-forward, you can use the following command:",
+          command: 'git merge --no-ff <branch-name>',
+          note: 'Replace <branch-name> with the name of the branch you want to merge.',
+        },
+        {
+          title: "Merge with a Commit Message",
+          description: "To merge a branch into the current branch with a commit message, you can use the following command:",
+          command: 'git merge -m "Commit message" <branch-name>',
+          note: 'Replace <branch-name> with the name of the branch you want to merge and "Commit message" with the message for the commit.',
+        },
+        {
+          title: "Abort a Merge",
+          description: "To abort a merge, you can use the following command:",
+          command: 'git merge --abort',
+          note: 'This will abort the merge process and return to the previous branch.',
+        },
+        {
+          title: "Allow Unrelated Histories",
+          description: "To allow merging branches with unrelated histories, you can use the following command:",
+          command: 'git merge --allow-unrelated-histories <branch-name>',
+          note: 'Replace <branch-name> with the name of the branch you want to merge.',
+        },
       ],
+    },
+    {
+      title: "Git Log",
+      description: "To view the commit history, you can use the following command:",
+      id: "git-log",
+      command: '',
+      commandItems: [
+        {
+          title: "View Commit History",
+          description: "To view the commit history, you can use the following command:",
+          command: 'git log',
+          note: 'This will display the commit history for the repository.',
+        },
+        {
+          title: "Limit the Number of Commits",
+          description: "To limit the number of commits to view, you can use the following command:",
+          command: 'git log -n <number>',
+          note: 'Replace <number> with the number of commits you want to view.',
+        },
+        {
+          title: "One-line Format",
+          description: "To view the commit history in one-line format, you can use the following command:",
+          command: 'git log --oneline',
+          note: 'This will display the commit history in a single line format.',
+        },
+        {
+          title: "Graphical Format",
+          description: "To view the commit history in a graphical format, you can use the following command:",
+          command: 'git log --graph',
+          note: 'This will display the commit history in a graphical format.',
+        },
+        {
+          title: "Show Commit Details",
+          description: "To show commit details, you can use the following command:",
+          command: 'git log --stat',
+          note: 'This will display the commit details for each commit.',
+        },
+        {
+          title: "Filter by Author",
+          description: "To filter commits by author, you can use the following command:",
+          command: 'git log --author=<author-name>',
+          note: 'Replace <author-name> with the name of the author you want to filter by.',
+        },
+        {
+          title: "Show Commit Details with Author",
+          description: "To show commit details with author, you can use the following command:",
+          command: 'git log --pretty=format:"%h - %an, %ar : %s"',
+          note: 'This will display the commit details with author for each commit.',
+        },
+        {
+          title: "Filter by Date",
+          description: "To filter commits by date, you can use the following command:",
+          command: 'git log --since=<date> --until=<date>',
+          note: 'Replace <date> with the date you want to filter by.',
+        },
+        {
+          title: "Filter by Commit Message",
+          description: "To filter commits by commit message, you can use the following command:",
+          command: 'git log --grep=<commit-message>',
+          note: 'Replace <commit-message> with the message of the commit you want to filter by.',
+        },
+        {
+          title: "Show Specific File History",
+          description: "To show the history of a specific file, you can use the following command:",
+          command: 'git log -- <file-path>',
+          note: 'Replace <file-path> with the path to the file you want to show the history of.',
+        },
+      ]
+    },
+    {
+      title: "Git Reset",
+      description: "To reset the current branch to a specific commit, you can use the following command:",
+      id: "git-reset",
+      command: '',
+      commandItems: [
+        {
+          title: "Reset to a Specific Commit",
+          description: "To reset the current branch to a specific commit, you can use the following command:",
+          command: 'git reset --hard <commit-hash>',
+          note: 'Replace <commit-hash> with the hash of the commit you want to reset to.',
+        },
+        {
+          title: "Reset to a Specific Commit and Keep Changes",
+          description: "To reset the current branch to a specific commit and keep changes, you can use the following command:",
+          command: 'git reset --soft <commit-hash>',
+          note: 'Replace <commit-hash> with the hash of the commit you want to reset to.',
+        },
+        {
+          title: "Mixed Reset",
+          description: "To reset the current branch to a specific commit and keep changes, you can use the following command:",
+          command: 'git reset --mixed <commit-hash>',
+          note: 'Replace <commit-hash> with the hash of the commit you want to reset to.',
+        },
+        {
+          title: "Reset a Specific File",
+          description: "To reset a specific file to a specific commit, you can use the following command:",
+          command: 'git reset <commit-hash> -- <file-path>',
+          note: 'Replace <commit-hash> with the hash of the commit you want to reset to and <file-path> with the path to the file you want to reset.',
+        },
+      ]
     }
   ]
   console.log(GitCommands)
