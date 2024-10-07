@@ -1,19 +1,21 @@
 'use client'
+import InnerSection from "@/components/InnerSection";
 import Section from "@/components/Section";
 import Image from "next/image";
 
 export default function Home() {
+  type Item = {
+    title: string;
+    description: string;
+    command: string;
+    note?: React.ReactNode;
+  }
   type DataSet = {
     title: string;
     description: string;
     id: string;
     command: string;
-    commandItems: {
-      title: string;
-      description: string;
-      command: string;
-      note: React.ReactNode;
-    }[];
+    commandItems: Item[];
   }
   const GitCommands: DataSet[] = [
     {
@@ -320,6 +322,106 @@ export default function Home() {
       ],
     },
     {
+      title: "Git Pull",
+      description: "To pull the latest changes from a remote repository, you can use the following command:",
+      id: "git-pull",
+      command: '',
+      commandItems: [
+        {
+          title: "Pull Latest Changes",
+          description: "To pull the latest changes from a remote repository, you can use the following command:",
+          command: 'git pull',
+          note: 'This will pull the latest changes from a remote repository and merge them into the current branch.',
+        },
+        {
+          title: "Pull a Specific Branch",
+          description: "To pull a specific branch from a remote repository, you can use the following command:",
+          command: 'git pull <remote-repository> <branch-name>',
+          note: 'Replace <remote-repository> with the name of the remote repository and <branch-name> with the name of the branch you want to pull.',
+        },
+        {
+          title: "Pull with Rebase",
+          description: "To pull the latest changes from a remote repository and rebase the current branch, you can use the following command:",
+          command: 'git pull --rebase',
+          note: 'This will pull the latest changes from a remote repository and rebase the current branch.',
+        },
+        {
+          title: "Pull with Fast-Forward Only",
+          description: "To pull the latest changes from a remote repository and fast-forward the current branch, you can use the following command:",
+          command: 'git pull --ff-only',
+          note: 'This will pull the latest changes from a remote repository and fast-forward the current branch.',
+        },
+        {
+          title: "Pull with No Commit",
+          description: "To pull the latest changes from a remote repository and not commit, you can use the following command:",
+          command: 'git pull --no-commit',
+          note: 'This will pull the latest changes from a remote repository and not commit.',
+        },
+        {
+          title: "Pull with No Fast-Forward",
+          description: "To pull the latest changes from a remote repository and not fast-forward, you can use the following command:",
+          command: 'git pull --no-ff',
+          note: 'This will pull the latest changes from a remote repository and not fast-forward.',
+        },
+        {
+          title: "Pull with No Commit",
+          description: "To pull the latest changes from a remote repository and not commit, you can use the following command:",
+          command: 'git pull --no-commit',
+          note: 'This will pull the latest changes from a remote repository and not commit.',
+        }
+      ],
+    },
+    {
+      title: "Git Push",
+      description: "To push the current branch to a remote repository, you can use the following command:",
+      id: "git-push",
+      command: '',
+      commandItems: [
+        {
+          title: "Push to Remote Repository",
+          description: "To push the current branch to a remote repository, you can use the following command:",
+          command: 'git push',
+          note: 'This will push the current branch to a remote repository.',
+        },
+        {
+          title: "Push to a Specific Remote Repository",
+          description: "To push the current branch to a specific remote repository, you can use the following command:",
+          command: 'git push <remote-repository> <branch-name>',
+          note: 'Replace <remote-repository> with the name of the remote repository and <branch-name> with the name of the branch you want to push.',
+        },
+        {
+          title: "Push with Force",
+          description: "To push the current branch to a remote repository with force, you can use the following command:",
+          command: 'git push --force',
+          note: 'This will push the current branch to a remote repository with force.',
+        },
+        {
+          title: "Push with No Fast-Forward",
+          description: "To push the current branch to a remote repository with no fast-forward, you can use the following command:",
+          command: 'git push --no-ff',
+          note: 'This will push the current branch to a remote repository with no fast-forward.',
+        },
+        {
+          title: "Push with No Commit",
+          description: "To push the current branch to a remote repository with no commit, you can use the following command:",
+          command: 'git push --no-commit',
+          note: 'This will push the current branch to a remote repository with no commit.',
+        },
+        {
+          title: "Push All Branches",
+          description: "To push all branches to a remote repository, you can use the following command:",
+          command: 'git push --all',
+          note: 'This will push all branches to a remote repository.',
+        },
+        {
+          title: "Set Upstream",
+          description: "To set the upstream branch for the current branch, you can use the following command:",
+          command: 'git push --set-upstream <remote-repository> <branch-name>',
+          note: 'Replace <remote-repository> with the name of the remote repository and <branch-name> with the name of the branch you want to set the upstream branch for.',
+        },
+      ],
+    },
+    {
       title: "Git Merge",
       description: "To merge a branch into the current branch, you can use the following command:",
       id: "git-merge",
@@ -462,8 +564,178 @@ export default function Home() {
           note: 'This will reset the current branch to the latest commit and delete any changes made after the latest commit.',
         },
       ]
+    },
+    {
+      title: "Git Revert",
+      description: "To revert a commit, you can use the following command:",
+      id: "git-revert",
+      command: '',
+      commandItems: [
+        {
+          title: "Revert a Single Commit",
+          description: "To revert a single commit, you can use the following command:",
+          command: 'git revert <commit-hash>',
+          note: 'Replace <commit-hash> with the hash of the commit you want to revert.',
+        },
+        {
+          title: "Revert Multiple Commits",
+          description: "To revert multiple commits, you can use the following command:",
+          command: 'git revert <commit-hash>..<commit-hash>',
+          note: 'Replace <commit-hash> with the hash of the commit you want to revert.',
+        },
+        {
+          title: "Revert a Commit Without Committing",
+          description: "To revert a commit without committing, you can use the following command:",
+          command: 'git revert -n <commit-hash>',
+          note: 'You can use "-n" or "--no-commit" option to revert a commit without committing. Replace <commit-hash> with the hash of the commit you want to revert.',
+        },
+      ]
+    },
+    {
+      title: "Git Stash",
+      description: "To save changes and switch to another branch, you can use the following command:",
+      id: "git-stash",
+      command: '',
+      commandItems: [
+        {
+          title: "Save Changes",
+          description: "To save changes and switch to another branch, you can use the following command:",
+          command: 'git stash',
+          note: 'This will save the changes and switch to another branch.',
+        },
+        {
+          title: "Save Changes with Message",
+          description: "To save changes with a message, you can use the following command:",
+          command: 'git stash save "Stash message"',
+          note: 'Replace "Stash message" with the message you want to save.',
+        },
+        {
+          title: "List Stashes",
+          description: "To list all stashes, you can use the following command:",
+          command: 'git stash list',
+          note: 'This will list all stashes.',
+        },
+        {
+          title: "Apply a Stash",
+          description: "To apply a stash, you can use the following command:",
+          command: 'git stash apply <stash-hash>',
+          note: 'Replace <stash-hash> with the hash of the stash you want to apply.',
+        },
+        {
+          title: "Drop a Stash",
+          description: "To drop a stash, you can use the following command:",
+          command: 'git stash drop <stash-hash>',
+          note: 'Replace <stash-hash> with the hash of the stash you want to drop.',
+        },
+        {
+          title: "Drop a Specific Stash",
+          description: "To drop a specific stash, you can use the following command:",
+          command: 'git stash drop stash@{<stash-index>}',
+          note: 'Replace <stash-index> with the index of the stash you want to drop.',
+        },
+        {
+          title: "Pop Stash",
+          description: "To pop a stash, you can use the following command:",
+          command: 'git stash pop',
+          note: 'This will pop the latest stash and apply it.',
+        },
+        {
+          title: "Drop All Stashes",
+          description: "To drop all stashes, you can use the following command:",
+          command: 'git stash clear',
+          note: 'This will drop all stashes.',
+        },
+        {
+          title: "Stash Untracked Files",
+          description: "To stash untracked files, you can use the following command:",
+          command: 'git stash --include-untracked',
+          note: 'This will stash untracked files.',
+        },
+      ]
+    },
+    {
+      title: "Git Fetch",
+      description: "To fetch the latest changes from a remote repository, you can use the following command:",
+      id: "git-fetch",
+      command: '',
+      commandItems: [
+        {
+          title: "Fetch Latest Changes",
+          description: "To fetch the latest changes from a remote repository, you can use the following command:",
+          command: 'git fetch',
+          note: 'This will fetch the latest changes from a remote repository.',
+        },
+        {
+          title: "Fetch from a Specific Remote",
+          description: "To fetch the latest changes from a specific remote repository, you can use the following command:",
+          command: 'git fetch <remote-repository>',
+          note: 'Replace <remote-repository> with the name of the remote repository you want to fetch from.',
+        },
+        {
+          title: "Fetch Specific Branch",
+          description: "To fetch the latest changes from a specific branch, you can use the following command:",
+          command: 'git fetch <remote-repository> <branch-name>',
+          note: 'Replace <remote-repository> with the name of the remote repository and <branch-name> with the name of the branch you want to fetch.',
+        },
+        {
+          title: "Fetch All Branches",
+          description: "To fetch all branches from a remote repository, you can use the following command:",
+          command: 'git fetch --all',
+          note: 'This will fetch all branches from a remote repository.',
+        },
+      ]
+    },
+    {
+      title: "Git Rebase",
+      description: "To rebase the current branch onto a specific commit, you can use the following command:",
+      id: "git-rebase",
+      command: '',
+      commandItems: [
+        {
+          title: "Rebase to a Specific Commit",
+          description: "To rebase the current branch onto a specific commit, you can use the following command:",
+          command: 'git rebase <commit-hash>',
+          note: 'Replace <commit-hash> with the hash of the commit you want to rebase onto.',
+        },
+        {
+          title: "Continue Rebase",
+          description: "To continue a rebase after resolving conflicts, you can use the following command:",
+          command: 'git rebase --continue',
+          note: 'This will continue the rebase process.',
+        },
+      ]
+      
     }
   ]
+
+  const GitUsefulFlags: Item[] = [
+    {
+      title: "-m",
+      description: "Allows you to provide a commit message directly in the command line.",
+      command: 'git commit -m "Commit message"',
+    },
+    {
+      title: "-a",
+      description: "Tells Git to automatically stage files that have been modified and deleted before committing.",
+      command: 'git commit -a -m "Commit message"',
+    },
+    {
+      title: "-v",
+      description: "Displays the commit message editor for you to edit the commit message before committing.",
+      command: 'git commit -v',
+    },
+    {
+      title: "-b",
+      description: "Creates a new branch and switches to it.",
+      command: 'git checkout -b <branch-name>',
+    },
+    {
+      title: "-d",
+      description: "Deletes the specified branch.",
+      command: 'git branch -d branch-name',
+    },
+  ]
+
   console.log(GitCommands)
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-fira)]">
@@ -482,12 +754,24 @@ export default function Home() {
           </div>
 
           {/* Git Commands */}
-          <div className="flex flex-col gap-20">
+          <div className="flex flex-col gap-20 mb-20">
             <h2 className="text-2xl font-medium mb-2">Git Commands</h2>
 
             {GitCommands.map((command) => (
               <Section key={command.id} command={command} />
             ))}
+
+</div>
+          <div className="flex flex-col gap-20 mb-20">
+            <h2 className="text-2xl font-medium mb-2">Git Useful Flags</h2>
+
+            {GitUsefulFlags.map((command, index) => (
+              <InnerSection key={index} command={command} />
+            ))}
+
+          </div>
+<div className="flex flex-col gap-20">
+            
 
             {/* Git login */}
             <div className="flex flex-col gap-4">

@@ -10,7 +10,7 @@ interface SectionProps {
       title: string;
       description: string;
       command: string;
-      note: React.ReactNode;
+      note?: React.ReactNode;
     }[];
   };
 }
@@ -30,7 +30,7 @@ const Section = ({ command }: SectionProps) => {
       {command.commandItems.length > 0 && (
         <div className="flex flex-col gap-6 pl-6 border-l-2 border-inner py-4 mt-4">
           {command.commandItems.map((item, index) => (
-            <InnerSection key={index} title={item.title} description={item.description} command={item.command} note={item.note} />
+            <InnerSection key={index} command={item} />
           ))}
         </div>
       )}
