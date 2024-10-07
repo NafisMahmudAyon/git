@@ -20,6 +20,24 @@
   }
 }
 
+/* stylish scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: var(--foreground);
+}
+
+aside::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Git Helper Command
 
-## Getting Started
+A comprehensive guide to Git commands and useful flags.
 
-First, run the development server:
+## About
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This web application serves as a reference for Git commands, providing:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- An explanation of Git and its uses
+- Detailed list of Git commands with descriptions and usage examples
+- Section on useful Git flags
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Comprehensive list of Git commands
+- Detailed explanations and usage examples for each command
+- Useful Git flags section
+- Responsive design with a sidebar for easy navigation
+- Built with Next.js and React
 
-## Learn More
+## Git Commands Covered
 
-To learn more about Next.js, take a look at the following resources:
+The application covers a wide range of Git commands, including:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Git Login
+- Git Init
+- Git Clone
+- Git Status
+- Git Add
+- Git Commit
+- Git Branch
+- Git Checkout
+- Git Switch
+- Git Restore
+- Git Pull
+- Git Push
+- Git Merge
+- Git Log
+- Git Reset
+- Git Revert
+- Git Stash
+- Git Fetch
+- Git Rebase
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Each command section includes a description, usage examples, and relevant notes.
 
-## Deploy on Vercel
+## Useful Flags
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application also includes a section on useful Git flags, such as:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `-m`: Provide a commit message directly in the command line
+- `-a`: Automatically stage modified and deleted files before committing
+- `-v`: Display the commit message editor
+- `-b`: Create a new branch and switch to it
+- `-d`: Delete a specified branch
+- `-u`: Set the upstream branch for the current branch
+- `-f`: Force push even if it results in a non-fast-forward merge
+
+## Author
+
+Made by [Nafis Mahmud Ayon](https://nafisbd.com)
